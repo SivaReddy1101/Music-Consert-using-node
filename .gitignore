@@ -1,7 +1,7 @@
 signup.ejs
 login.ejs
-partials/loginhead.ejs
-partials/signuphead.ejs
+views/partials/loginhead.ejs
+views/partials/signuphead.ejs
 
 # Logs
 logs
