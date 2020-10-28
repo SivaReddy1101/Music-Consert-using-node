@@ -1,0 +1,48 @@
+#title{
+    background-image: url("images/bg-home1-01-1920x1000.jpg");
+    background-size: cover;
+    color: #eaf0f0;
+    text-align: center;
+}
+
+.titleheading{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.7rem;
+    line-height: 1.5;
+    margin-top: 3.75rem;
+    letter-spacing: 0.1rem;
+}
+
+/* Used in index html file and contact html file */
+#fluid-pad{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+#nbpad{
+    padding: 0 0 2.75rem;
+}
+.nav-item{
+    padding: 0 0.8rem;
+}
+
+.nav-link{
+    font-family: cursive;
+    font-size: 1.1rem;
+}
+#nb{
+    font-family: 'Sacramento', cursive;
+    font-weight: bold;
+    font-size: 2rem;
+    color:gray;
+}
+
+#editbtn{
+    margin: 1rem 0.5rem;
+}
+
+i{
+    margin: 0 0.5rem 0 0;
+}
