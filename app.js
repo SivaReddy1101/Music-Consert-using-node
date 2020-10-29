@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 mongoose.connect("mongodb://localhost:27017/userDB", { useUnifiedTopology: true , useNewUrlParser: true });
 
 const userSchema = new mongoose.Schema({
+    proname: String,
     email: String,
     password: String
 });
@@ -31,6 +32,14 @@ app.get("/contact",function(req,res){
   res.render("contact");
 });
 
+app.get("/contact1",function(req,res){
+  res.render("contact1");
+});
+
+app.get("/loghome",function(req,res){
+      res.render("loghome");
+});
+
 app.get("/login",function(req,res){
     res.render("login");
 });
@@ -40,8 +49,9 @@ app.get("/signup",function(req,res){
 });
 
 app.post("/signup",function(req,res){
-    console.log(req.body.Email);
+    const proName = req.body.fName + req.body.lName;
     const newUser =  new User({
+        proname: proName,
         email: req.body.Email,
         password: md5(req.body.inputPassword)
       });
@@ -49,7 +59,7 @@ app.post("/signup",function(req,res){
         if (err) {
           console.log(err);
         } else {
-          res.render("home");
+          res.render("loghome",{profileName:proName});
         }
       });
 });
@@ -58,14 +68,16 @@ app.post("/login", function(req, res){
   const username = req.body.Email;
   const password = md5(req.body.inputPassword);
 
+
   User.findOne({email: username}, function(err, foundUser){
+    const proName = foundUser.proname;
     if (err) {
       console.log(err);
       console.log('wrong password');
     } else {
       if (foundUser) {
         if (foundUser.password === password) {
-          res.render("home");
+          res.render("loghome",{profileName:proName});
         }
       }
     }
